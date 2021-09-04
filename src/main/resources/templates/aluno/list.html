@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Alunos</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+
+<nav class="nav">
+    <a th:href="@{/}">Início</a>
+    <a th:href="@{/aluno/list}">Alunos</a>
+    <a th:href="@{/conteudo/list}">Conteúdos</a>
+    <a th:href="@{/aluno/add}">Adicionar Aluno</a>
+</nav>
+
+
+<div class="table">
+
+    <table>
+        <thead>
+        <tr class="cabe-table">
+            <th>Código</th>
+            <th>Aluno</th>
+            <th>Nome</th>
+            <th>Turma</th>
+            <th class="edt-del">Ações</th>
+        </tr>
+        </thead>
+        <tbody class="item-table">
+        <tr th:each="aluno: ${alunos}">
+            <td class="td-codigo" th:text="${aluno.id}"></td>
+            <td th:text="${aluno.nome}"></td>
+            <td th:text="${aluno.turma}"></td>
+            <td th:text="${aluno.ano}"></td>
+            <td class="edt-del">
+                <a th:href="@{'/aluno/edit/' + ${aluno.id}}" class="id"> <i class="far fa-edit"></i> </a>
+                <a th:onclick="|showModalDeletar('aluno', ${aluno.id})|" class="id" id="delete"> <i class="far fa-trash-alt"></i> </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="modal" tabindex="-1" id="modalDeletar">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+                <div class="modal-header modal-header-color">
+                    <h5 class="modal-title">Atenção!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Voce deseja mesmo deletar o aluno?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Opa, não!</button>
+                    <button type="button" class="btn btn-primary" onclick="deletar()">Sim!</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <script th:src="@{/js/jquery-3.6.0.min.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+            integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+            crossorigin="anonymous"></script>
+
+    <script th:src="@{/bootstrap-4.5.2/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Início</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+
+    <nav class="nav">
+        <a th:href="@{/aluno/list}">Alunos</a>
+        <a th:href="@{/conteudo/list}">Conteúdos</a>
+        <a th:href="@{/aluno/add}">Adicionar Aluno</a>
+        <a th:href="@{/conteudo/add}">Adicionar Conteúdo</a>
+    </nav>
+
+    <div class="yato">
+        <div class="q">
+            <h1>Atividade de revisão</h1>
+            <label>Criar um sistema onde um aluno consegue adicionar um ou mais conteúdos. <br>
+            Esse aluno possui as seguintes informações: Id, Nome, Turma e Ano. <br>
+            E os conteúdos possuem as seguintes informações: Id, Título, Descrição, Aluno e Data. </label>
+        </div>
+
+        <img src="./img/yatoFoda.jpg">
+    </div>
+
+</body>
+</html>

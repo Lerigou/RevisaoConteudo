@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar aluno</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap-4.5.2/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+</head>
+<body>
+
+<nav class="nav">
+    <a th:href="@{/}">Início</a>
+    <a th:href="@{/aluno/list}">Alunos</a>
+    <a th:href="@{/conteudo/list}">Conteúdos</a>
+    <a th:href="@{/aluno/add}">Adicionar Alunos</a>
+    <a th:href="@{/conteudo/add}">Adicionar Conteudos</a>
+</nav>
+
+<div class="table">
+    <form th:action="@{/aluno/save}"
+          th:object="${aluno}"
+          method="post">
+
+        <div th:if="${erro}" class="alert alert-danger">
+            <span th:text="${erroMsg}"></span>
+        </div>
+
+        <div class="item-container">
+            <input type="number" class="inputs" id="floatingInputId" placeholder="Código" readonly th:field="${aluno.id}">
+            <input type="text" class="inputs" id="floatingInputNome" placeholder="Nome" th:field="${aluno.nome}" required>
+            <input type="text" class="inputs" id="floatingInputEmail" placeholder="Turma" th:field="${aluno.turma}" required>
+            <input type="number" class="inputs" id="floatingInputData" placeholder="Ano" th:field="${aluno.ano}" required>
+
+            <div class="bot">
+                <a th:href="@{/aluno/list}" class="btn btn-secondary" href="#"><i class="fa fa-backspace"></i>Voltar</a>
+                <button class="btn btn-primary" type="submit"><i class="fa fa-save"></i>Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
