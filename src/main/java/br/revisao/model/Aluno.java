@@ -23,6 +23,16 @@ public class Aluno {
     @NotNull
     private String ano;
 
+    public Aluno(){
+
+    }
+
+    public Aluno(String nome, String turma, String ano){
+        this.nome = nome;
+        this.turma = turma;
+        this.ano = ano;
+    }
+
     public Long getId() {
         return id;
     }

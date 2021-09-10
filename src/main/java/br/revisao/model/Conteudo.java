@@ -22,6 +22,15 @@ public class Conteudo{
     @NotNull
     private Date data;
 
+    public Conteudo(){
+
+    }
+
+    public Conteudo(String nome, String descricao){
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
     @OneToOne
     @JoinColumn(name = "aluno_id", referencedColumnName = "id")
     private Aluno aluno;
